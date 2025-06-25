@@ -16,7 +16,7 @@ cd mycounter-appium-tests
 ### 2. Create virtual environment (recommended)
 
 ```bash
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
@@ -26,7 +26,7 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 4. Install Appium & Flutter driver
+### 4. Install Appium & uiautomator2 driver
 
 Make sure [Node.js](https://nodejs.org/) is installed.
 
@@ -94,8 +94,11 @@ pytest tests/test_login_screen.py
 
 * **Framework:** `pytest` + Page Object Model (POM)
 * **Driver:** `UiAutomator2`
-* **Logging:** Built-in `logging` module
+- **Logging & Debugging:**  
+  All interactions are wrapped with `logging` for traceability and easier debugging.  
+  Includes **automatic screenshot capture** on test failures.
 * **Error handling:** All interactions are wrapped with logging and exception tracing
+* **Screenshot when test failed**
 * **Reusable components:** All screen actions are encapsulated in `pages/`
 
 ---
