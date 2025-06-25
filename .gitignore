@@ -43,6 +43,3 @@ dist/
 node_modules/
 package-lock.json
 
-# Test artifacts
-screenshots/
-reports/
