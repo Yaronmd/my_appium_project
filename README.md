@@ -67,45 +67,35 @@ pytest tests/test_login_screen.py
 
 ```
 .
-├── apps
-│   └── app-debug.apk
+── apps
+│   └── app-debug.apk               # The compiled APK file of the app under test
 ├── capabilities
-│   └── android_caps.json
-├── conftest.py
+│   └── android_caps.json           # JSON file with Appium capabilities (platform, app path, device name, etc.)
+├── conftest.py                     # Pytest configuration hooks (fixtures like driver setup, teardown, etc.)
 ├── pages
-│   ├── base_page.py
-│   ├── login_page.py
-│   ├── main_page.py
-│   ├── messages_page.py
-│   └── profile_page.py
-├── pytest.ini
-├── README.md
-├── requirements.txt
+│   ├── base_page.py                # Base class with common actions (click, send_keys, wait, etc.)
+│   ├── login_page.py               # Page Object for login screen
+│   ├── main_page.py                # Page Object for main (counter) screen
+│   ├── messages_page.py           # Page Object for messages screen
+│   └── profile_page.py            # Page Object for profile screen
+├── pytest.ini                      # Pytest configuration (markers, logging, etc.)
+├── README.md                       # Project documentation (this file)
+├── requirements.txt                # List of Python dependencies for the project
 ├── tests
-│   ├── test_e2e.py
-│   └── test_login_screen.py
+│   ├── test_e2e.py                 # End-to-end flow tests (e.g. login → navigate → logout)
+│   └── test_login_screen.py        # Focused tests for login scenarios
 ├── utils
-│   └── driver_factory.py
+│   └── driver_factory.py           # Utility to initialize the Appium driver from capabilities
 ```
 
 ---
 
-## 🧠 High-Level Design
+## High-Level Design
 
 * **Framework:** `pytest` + Page Object Model (POM)
-* **Driver:** `appium-flutter-driver@2.0.0`
+* **Driver:** `UiAutomator2`
 * **Logging:** Built-in `logging` module
 * **Error handling:** All interactions are wrapped with logging and exception tracing
 * **Reusable components:** All screen actions are encapsulated in `pages/`
-* **Logout method:** Available globally via `BasePage`
-* **Future extensions:** Easy to add screenshots, video recording, and reporting (Allure, HTML, etc.)
 
 ---
-
-## 💬 Questions or Issues?
-
-Feel free to open an issue or contact the maintainer.
-
----
-
-Made with ❤️ using Python & Appium
