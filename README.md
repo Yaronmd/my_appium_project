@@ -32,7 +32,7 @@ Make sure [Node.js](https://nodejs.org/) is installed.
 
 ```bash
 npm install -g appium
-appium driver install flutter
+appium driver install uiautomator2
 ```
 
 ---
