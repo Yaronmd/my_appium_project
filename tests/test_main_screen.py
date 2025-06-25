@@ -5,19 +5,23 @@ from pages.main_page import MainPage
     
     
     
-def test_init_main_page(driver):
-    
-    user_name = "test@lumen.me"
-    password =  "qwerty"
-    login_page = LoginPage(driver)
-    login_page.perfrom_login(user_name, password)
+def test_init_main_page(driver,login_app,credentials):
     main_page = MainPage(driver)
+    username = credentials["username"]
+    assert main_page.get_title(username) == f"Welcome {username}"
+    assert main_page.validate_my_counter_label() == "My Counter"
+    assert main_page.get_count_number() == "0"
+    assert main_page.validate_bottom_nav_bar_exists()
     
-    title = main_page.get_title(user_name)
-    
-    assert title is not None
-    assert title.get_attribute("content-desc") == f"Welcome {user_name}"
     
     
+    
+def test_counter_increase_and_reset(driver,login_app):
+    main_page = MainPage(driver)
+    assert main_page.get_count_number() == "0"
+    main_page.click_home_tab_button()
+    assert main_page.get_count_number() == "1"
+    main_page.click_reset_button()
+    assert main_page.get_count_number() == "0"
     
     

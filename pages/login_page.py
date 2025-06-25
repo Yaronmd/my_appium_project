@@ -32,10 +32,19 @@ class LoginPage(BasePage):
         self.click_login()
     
     def get_username_field_message(self):
-        return self.find_by_content_desc(desc="Enter email")
+        email_field = self.find_by_content_desc(desc="Enter email")
+        assert email_field is not None
+        if email_field:
+           return email_field.get_attribute("content-desc")
+        
+            
     
     def get_password_field_message(self):
-        return self.find_by_content_desc(desc="Enter password")
+        password_field = self.find_by_content_desc(desc="Enter password")
+        assert password_field is not None
+        return password_field.get_attribute("content-desc") == "Enter password"
     
     def get_fill_in_field_message(self):
-        return self.find_by_content_desc(desc="Please fill in all fields.")
+        error_msg =  self.find_by_content_desc(desc="Please fill in all fields.")
+        assert error_msg is not None
+        return error_msg.get_attribute("content-desc")
