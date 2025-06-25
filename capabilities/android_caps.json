@@ -1,0 +1,9 @@
+{
+  "platformName": "Android",
+  "deviceName": "emulator-5554",
+  "automationName": "UiAutomator2",
+  "app": "apps/app-debug.apk",
+  "appPackage": "com.example.mycounter.mycounter",
+  "appActivity": ".MainActivity",
+  "newCommandTimeout": 3600
+}
