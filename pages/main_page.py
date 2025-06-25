@@ -39,9 +39,9 @@ class MainPage(BasePage):
         reset_button.click()
     
     def validate_bottom_nav_bar_exists(self):
-        assert self.find_by_content_desc(self.homeTabButton) and\
-            self.find_by_content_desc(self.messagesTabButton) and\
-                self.find_by_content_desc(self.profileTabButton)
+        assert self.find_by_content_desc(self.homeTabButton) is not None and\
+            self.find_by_content_desc(self.messagesTabButton) is not None and\
+                self.find_by_content_desc(self.profileTabButton) is not None
         
     
     def click_home_tab_button(self):
