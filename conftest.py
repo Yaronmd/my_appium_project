@@ -26,4 +26,4 @@ def driver():
 def login_app(driver,credentials):
   
     login_page = LoginPage(driver)
-    login_page.perfrom_login(credentials["username"], credentials[password])
+    login_page.perfrom_login(credentials["username"], credentials["password"])
